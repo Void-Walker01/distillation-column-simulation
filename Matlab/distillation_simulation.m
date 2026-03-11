@@ -99,3 +99,43 @@ while x_stage > xB
 end
 
 disp(['Number of theoretical stages: ', num2str(stages)])
+
+
+
+R_values = 1.5:0.5:5;
+stage_results = zeros(size(R_values));
+
+for i=1:length(R_values)
+
+    R_test = R_values(i);
+    m_test = R_test/(R_test+1);
+    c_test = xD/(R_test+1);
+
+    x_stage = xD;
+    y_stage = xD;
+    stages = 0;
+
+    while x_stage>xB
+        x_new = (y_stage) / (alpha - (alpha-1)*y_stage);
+        x_stage = x_new;
+
+        if x_stage > xF
+            y_new = m_test*x_stage + c_test;
+        else
+            y_new = ((y_int - xB)/(x_int - xB))*(x_stage - xB) + xB;
+        end
+
+        y_stage = y_new;
+        stages = stages + 1;
+    end
+
+    stage_results(i) = stages;
+
+end
+
+figure
+plot(R_values,stage_results,'o-','LineWidth',2)
+xlabel('Reflux Ratio')
+ylabel('Number of Theoretical Stages')
+title('Effect of Reflux Ratio on Number of Stages')
+grid on
