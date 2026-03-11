@@ -34,3 +34,18 @@ y_rect = (R/(R+1))*x + xD/(R+1);
 plot(x,y_rect,'r','LineWidth',2)
 
 legend('Equilibrium curve','y = x','Rectifying operating line')
+
+xF=0.4;    
+q=1;      
+
+
+if q==1
+    x_q=[xF xF];
+    y_q=[0 1];
+    plot(x_q,y_q,'g','LineWidth',2)
+else
+    y_q = (q/(q-1))*x-xF/(q-1);
+    plot(x,y_q,'g','LineWidth',2)
+end
+
+legend('Equilibrium curve','y = x','Rectifying line','Feed line (q-line)')
