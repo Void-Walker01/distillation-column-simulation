@@ -71,3 +71,31 @@ y_strip = ((y_int - xB)/(x_int - xB))*(x - xB) + xB;
 plot(x,y_strip,'m','LineWidth',2)
 
 legend('Equilibrium curve','y = x','Rectifying line','Feed line','Stripping line')
+
+
+x_stage = xD;
+y_stage = xD;
+
+stages = 0;
+
+while x_stage > xB 
+    x_new = (y_stage) / (alpha - (alpha-1)*y_stage);
+    
+    plot([x_stage x_new],[y_stage y_stage],'w','LineWidth',2)
+    
+    x_stage = x_new;
+    
+    if x_stage > xF
+        y_new = m*x_stage + c;         
+    else
+        y_new = ((y_int - xB)/(x_int - xB))*(x_stage - xB) + xB;  % stripping
+    end
+    
+    plot([x_stage x_stage],[y_stage y_new],'w','LineWidth',2)
+    
+    y_stage = y_new;
+    
+    stages=stages+1;
+end
+
+disp(['Number of theoretical stages: ', num2str(stages)])
