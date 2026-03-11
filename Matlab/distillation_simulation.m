@@ -22,3 +22,15 @@ title('VLE Equilibrium Curve for Ethanol-Water System')
 
 legend('Equilibrium curve','y = x')
 grid on
+
+% Distillation specifications
+xD = 0.95;   
+xB = 0.05;   
+R  = 2.5;    
+
+% Rectifying operating line
+y_rect = (R/(R+1))*x + xD/(R+1);
+
+plot(x,y_rect,'r','LineWidth',2)
+
+legend('Equilibrium curve','y = x','Rectifying operating line')
