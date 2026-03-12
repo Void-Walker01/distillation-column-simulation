@@ -23,11 +23,11 @@ The model also estimates the **feed stage location** and **minimum reflux ratio*
 
 ### McCabe–Thiele Diagram
 
-![McCabe-Thiele Diagram](plots/figure_1.png)
+![McCabe-Thiele Diagram](Plots/figure_1.png)
 
 ### Effect of Reflux Ratio on Number of Stages
 
-![Reflux Ratio Analysis](plots/figure_2.png)
+![Reflux Ratio Analysis](Plots/figure_2.png)
 
 ## Key Insight
 
