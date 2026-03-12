@@ -77,6 +77,7 @@ x_stage = xD;
 y_stage = xD;
 
 stages = 0;
+feed_stage=0;
 
 while x_stage > xB 
     x_new = (y_stage) / (alpha - (alpha-1)*y_stage);
@@ -88,6 +89,9 @@ while x_stage > xB
     if x_stage > xF
         y_new = m*x_stage + c;         
     else
+        if feed_stage==0
+            feed_stage = stages + 1;
+        end
         y_new = ((y_int - xB)/(x_int - xB))*(x_stage - xB) + xB;  % stripping
     end
     
