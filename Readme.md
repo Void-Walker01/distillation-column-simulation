@@ -1,29 +1,45 @@
 # Binary Distillation Column Design & Simulation
 
-This project implements a MATLAB-based simulation of a binary distillation column using the **McCabe–Thiele method**.
+This project implements the **McCabe–Thiele method in MATLAB** to study binary distillation of an ethanol–water mixture and estimate the number of theoretical stages required for separation.
 
-## Objective
-To analyze ethanol–water separation and estimate the number of theoretical stages required for a given reflux ratio.
+## Overview
 
-## Features
-- McCabe–Thiele graphical method implementation
-- Equilibrium curve generation
-- Operating line and feed line calculation
-- Theoretical stage estimation
-- Reflux ratio sensitivity analysis
+The simulation models vapor–liquid equilibrium and the operating lines of a distillation column to perform tray-by-tray stage stepping using the McCabe–Thiele graphical method. Starting from the distillate composition, the algorithm alternates between the equilibrium curve and the operating lines until the bottom composition is reached, allowing the number of theoretical stages to be determined.
+
+## What the Model Includes
+
+- Vapor–Liquid Equilibrium (VLE) modeling using relative volatility  
+- Rectifying and stripping operating line calculations  
+- Feed condition representation using the **q-line**  
+- Automated McCabe–Thiele stage stepping in MATLAB  
+- Estimation of theoretical stages for a given reflux ratio  
+- A small sensitivity study showing how reflux ratio affects stage requirements  
+
+## Results
+
+### McCabe–Thiele Diagram
+
+![McCabe-Thiele Diagram](Plots/figure_1.png)
+
+### Effect of Reflux Ratio on Number of Stages
+
+![Reflux Ratio Analysis](Plots/figure_2.png)
+
+## Key Insight
+
+The simulation highlights the classic trade-off in distillation design:
+
+- **Higher reflux ratio → fewer stages required**
+- **Lower reflux ratio → more stages required**
+
+This is one of the central design considerations when balancing **column height and energy consumption** in industrial distillation systems.
 
 ## Tools Used
-- MATLAB
-- Chemical Engineering principles (H&MB, Separation Processes)
 
-## Repository Structure
+MATLAB • Separation Processes • Heat & Material Balance
 
-distillation-column-simulation  
-│  
-├── matlab/        → MATLAB scripts  
-├── plots/         → Generated equilibrium and stage plots  
-├── report/        → Project summary  
-└── README.md  
+## Author
 
-## Status
-Work in progress.
+Rohit Guleria  
+B.Tech Chemical Engineering  
+IIT (ISM) Dhanbad
