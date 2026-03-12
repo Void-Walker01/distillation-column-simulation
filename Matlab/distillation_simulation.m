@@ -105,6 +105,32 @@ end
 disp(['Number of theoretical stages: ', num2str(stages)])
 
 
+% Minimum reflux ratio calculation
+
+x_vals = linspace(0.01,0.99,1000);
+y_eq = (alpha .* x_vals) ./ (1 + (alpha - 1).*x_vals);
+
+
+if q==1
+    y_feed = nan(size(x_vals));
+    x_feed = xF;
+    y_feed = (alpha .* x_feed) ./ (1 + (alpha - 1).*x_feed);
+    x_pinch = x_feed;
+    y_pinch = y_feed;
+else
+    y_feed = (q/(q-1))*x_vals - xF/(q-1);
+    [~,idx] = min(abs(y_eq - y_feed));
+    x_pinch = x_vals(idx);
+    y_pinch = y_eq(idx);
+end
+
+m_min = (y_pinch - xD) / (x_pinch - xD);
+
+% convert slope to reflux ratio
+R_min = m_min/(1 - m_min);
+
+disp(['Estimated Minimum Reflux Ratio: ', num2str(R_min)])
+
 
 R_values = 1.5:0.5:5;
 stage_results = zeros(size(R_values));
